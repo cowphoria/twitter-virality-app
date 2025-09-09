@@ -24,6 +24,11 @@ export default function LandingPage() {
                   Features
                 </Button>
               </Link>
+              <Link href="/ab-testing">
+                <Button variant="ghost" size="sm">
+                  A/B Testing
+                </Button>
+              </Link>
               <Button variant="ghost" size="sm">
                 Pricing
               </Button>

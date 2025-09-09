@@ -4,6 +4,9 @@ import { ViralityDashboard } from "@/components/virality-dashboard"
 import { Header } from "@/components/header"
 import { UserMenu } from "@/components/user-menu"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { TestTube } from "lucide-react"
 
 export default function AppPage() {
   return (
@@ -25,6 +28,16 @@ export default function AppPage() {
               <TabsTrigger value="compose">AI Composer</TabsTrigger>
               <TabsTrigger value="dashboard">Dashboard</TabsTrigger>
             </TabsList>
+            
+            {/* A/B Testing Link */}
+            <div className="mb-6 text-center">
+              <Link href="/ab-testing">
+                <Button variant="outline" className="flex items-center gap-2">
+                  <TestTube className="h-4 w-4" />
+                  A/B Testing Lab
+                </Button>
+              </Link>
+            </div>
             <TabsContent value="analyze">
               <TweetAnalyzer />
             </TabsContent>

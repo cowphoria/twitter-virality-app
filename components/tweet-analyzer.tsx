@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Loader2, TrendingUp, Clock, MessageSquare, Hash, AtSign, Lightbulb, Copy, RefreshCw } from "lucide-react"
+import { TrendingTopics } from "@/components/trending-topics"
 
 interface TweetAnalysis {
   text: string
@@ -126,6 +127,17 @@ export function TweetAnalyzer() {
       {/* Analysis Results */}
       {analysis && (
         <div className="grid gap-6 md:grid-cols-2">
+          {/* Trending Topics */}
+          <TrendingTopics 
+            onHashtagSelect={(hashtag) => {
+              // Add hashtag to the current tweet
+              const currentTweet = tweet.trim();
+              const newTweet = currentTweet ? `${currentTweet} ${hashtag}` : hashtag;
+              setTweet(newTweet);
+            }}
+            className="md:col-span-2"
+          />
+
           {/* Overall Score */}
           <Card>
             <CardHeader>
